@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>To-Do List</title>
+	<header>
+	<style>
+		.completed {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+	<h1>To-Do List</h1>
+	<input type="text" id="task" placeholder="Enter task">
+	<button onclick="addTask()">Add</button>
+	<ul id="taskList"></ul>
+	<script>
+		let taskList = document.getElementById("taskList");
+		let taskInput = document.getElementById("task");
+
+		function addTask() {
+			let task = taskInput.value;
+			if (task) {
+				let li = document.createElement("li");
+				li.innerHTML = task;
+				li.onclick = function() {
+					this.classList.toggle("completed");
+				};
+				taskList.appendChild(li);
+				taskInput.value = "";
+			}
+		}
+	</script>
+</body>
+<style>
+input[type="text"], button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+header {
+	background-image:url(pic.jpg);
+	height:100vh;
+	background-size:cover;
+	background-position:center
+}
+
+input[type="text"] {
+  width: 60%;
+}
+
+button {
+  width: 20%;
+  background-color: #red;
+  color: purple;
+}
+
+li {
+  padding: 12px 16px;
+  list-style-type: none;
+  border: 1px solid #fff;
+  margin-top: -1px;
+  position: relative;
+  background-color: #fff;
+}
+
+li.completed {
+  background-color: #fff;
+}
+
+li.completed span {
+  text-decoration: line
+  </style>
+</html>
